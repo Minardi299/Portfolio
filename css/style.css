@@ -1,3 +1,5 @@
+
 body{
-  background-color: red;
+  --main-color: red;
+  background-color: var(--main-color);;
 }
