@@ -9,11 +9,11 @@ body{
   font-family: Arial, Helvetica, sans-serif;
 
 }
-p,h3,h4,h5,h6{
-  color: var(--third-color);
+.alligator{
+  display: none;
 }
-.no-margin{
-  margin: 0;
+.normal{
+  display: visible;
 }
 #name{
   font-size: 10em;
@@ -23,34 +23,11 @@ h1,h2{
   font-family: "Inter Tight", serif;
   color: var(--secondary-color);
 }
-section:not(#hero) {
- 
-  text-align: center; 
+p,h3,h4,h5,h6{
+  color: var(--third-color);
 }
-#hero {
-  display: flex;
-  justify-content: center; /* Centers the content horizontally */
-  align-items: center; /* Centers the content vertically */
-  padding: 20px; /* Space around the content */
-  height: 100vh; /* Full viewport height */
-}
-.contact{
-  flex-direction: column;
-}
-.hero-content {
-  display: flex;
-  justify-content: space-evenly; /* Creates space between the text and the button */
-  align-items: center; /* Ensures vertical alignment */
-  width: 50%; /* Keeps the content in the middle, adjust as needed */
-}
-
-.hero-text {
-
-  text-align: left; /* Left-align the text */
-}
-
-.hero-button {
-  text-align: left; 
+.no-margin{
+  margin: 0;
 }
 a {
   line-height: 1em;
@@ -67,12 +44,30 @@ a:hover {
   font-size: 2em; 
   font-weight: bold;
 }
-.alligator{
-  display: none;
+#hero {
+  display: flex;
+  justify-content: center; /* Centers the content horizontally */
+  align-items: center; /* Centers the content vertically */
+  height: 100vh; /* Full viewport height */
 }
-.normal{
-  display: visible;
+
+.hero-content {
+  display: flex;
+  justify-content: space-evenly; /* Creates space between the text and the button */
+  align-items: center; /* Ensures vertical alignment */
+  width: 50%; /* Keeps the content in the middle, adjust as needed */
 }
+
+.hero-text {
+
+  text-align: left; /* Left-align the text */
+}
+
+.hero-button {
+  text-align: left; 
+}
+
+
 .sidebar {
   position: fixed;
   width: 5%;
@@ -119,4 +114,8 @@ a:hover {
 
    
   }
+}
+section:not(#hero) {
+  text-align: center; 
+  padding-top: 5dvh;
 }
