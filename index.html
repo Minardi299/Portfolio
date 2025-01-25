@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="css/base.css">
     <link id="stylesheet" rel="stylesheet" href="css/style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script defer src="js/index.js"></script>
   </head>
 
   <body>
     <main>
-      <button class="sidebar-toggle">☰</button>
-      <aside class="sidebar">
+      <aside class="sidebar normal">
         <nav class="nav">
           <ul>
             <li>
@@ -29,12 +31,24 @@
           
         </nav>
       </aside>
-      <section id="hero" class="normal">
-        <h1 class="normal">Welcome to My Website</h1>  
-        <h1 class="alligator">This is for the alligator</h1>
-        <!-- From Uiverse.io by vinodjangid07 --> 
-        <input type="checkbox" id="checkboxInput">
-        <label for="checkboxInput" class="toggleSwitch"></label>
+      <ul class="hero">
+        <li><a href="">Linkedln</a></li>
+        <li><a href="">Github</a></li>
+      </ul>
+      <section id="hero" >
+        <div class="hero-content">
+          <div class="hero-text">
+            <p class="normal no-margin">Hi! My name is</p>
+            <h1 id="name" class="normal no-margin">minh</h1>
+            <h3 class="normal no-margin">Junior developer</h3>
+            <h1 class="alligator">This is for the alligator</h1>
+          </div>
+          <div class="hero-button">
+            <!-- From Uiverse.io by vinodjangid07 --> 
+            <input type="checkbox" id="checkboxInput">
+            <label for="checkboxInput" class="toggleSwitch"></label>
+          </div>
+        </div>
       </section>
       <section id="about">
         <h1>this isi the about section</h1>
