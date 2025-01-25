@@ -1,5 +1,74 @@
 
 body{
-  --main-color: red;
-  background-color: var(--main-color);;
+  --main-color: #1e1e1e;
+  --secondary-color: #FFA501;
+  --third-color:#f5f5f5;
+  --darker-secondary-color: #a86d00;
+  background-color: var(--main-color);
+  padding-top: 1dvh;
+}
+p{
+  color: var(--third-color);
+}
+.alligator{
+  display: none;
+}
+.normal{
+  display: visible;
+}
+.sidebar {
+  position: fixed;
+  width: 5%;
+  height: 50vh;
+  font-size: 0.65em;
+}
+.nav {
+  position: relative;
+  text-align: right;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+.nav ul {
+  list-style: none;
+
+  li {
+    position: relative;
+    margin: 3.2em 0;
+
+    a {
+      line-height: 1em;
+      text-decoration: none;
+      letter-spacing: 0.4em;
+      display: block;
+      transition: all ease-out 300ms;
+      font-size: 1.2em; 
+      color:var(--secondary-color); /* Default color */
+    }
+
+    &.active a {
+      color: var(--darker-secondary-color); 
+      font-size: 2em; 
+      font-weight: bold;
+    }
+
+    &:not(.active)::after {
+      opacity: 0.2;
+    }
+
+    &:not(.active):hover a {
+      color: var(--darker-secondary-color);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0.2em;
+
+      left: 0;
+
+      background-image: linear-gradient(to right, var(--secondary-color), var(--darker-secondary-color));
+    }
+  }
 }

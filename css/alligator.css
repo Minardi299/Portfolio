@@ -1,3 +1,9 @@
 body{
     background-color: blue;
-  }
+}
+.alligator{
+  display: visible;
+}
+.normal{
+  display: none;
+}

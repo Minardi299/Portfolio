@@ -1,14 +1,4 @@
-document.getElementById("switch-btn").addEventListener("click", function() {
-  const currentStyle = stylesheet.getAttribute("href");
 
-  if (currentStyle === "css/style.css") {
-    stylesheet.setAttribute("href", "css/alligator.css");
-    this.textContent = "Switch";  
-  } else {
-    stylesheet.setAttribute("href", "css/style.css");
-    this.textContent = "Switch";  
-  }
-});
 const themeToggle = document.getElementById("checkboxInput");
 const stylesheet = document.getElementById("stylesheet");
 themeToggle.addEventListener("change", function() {
@@ -18,3 +8,16 @@ themeToggle.addEventListener("change", function() {
     stylesheet.setAttribute("href", "css/style.css");
   }
 });
+const links = document.querySelectorAll('.nav ul li');
+const sections = document.querySelectorAll('section');
+
+const setActiveLink = () => {
+  let index = sections.length;
+
+  while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+  links.forEach((link) => link.classList.remove('active'));
+  links[index].classList.add('active');
+};
+
+window.addEventListener('scroll', setActiveLink);
