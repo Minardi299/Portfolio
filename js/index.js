@@ -35,24 +35,31 @@ const hiddenElement = document.querySelectorAll('.hidden');
 hiddenElement.forEach((el)=> observer.observe(el));
 const nameElement = document.getElementById("name");
 
-// Store the initial font size
+// Get the initial dimensions and font size
+const initialWidth = nameElement.clientWidth;
+const initialHeight = nameElement.clientHeight;
 const initialFontSize = parseFloat(window.getComputedStyle(nameElement).fontSize);
+
+// Calculate the initial ratios
+const widthRatio = initialFontSize / initialWidth;
+const heightRatio = initialFontSize / initialHeight;
 
 // Create a ResizeObserver to detect changes in the element's size
 const resizeObserver = new ResizeObserver((entries) => {
   for (let entry of entries) {
     const { width, height } = entry.contentRect;
 
-    // Adjust font size based on the width of the element
-    const fontSize = Math.min(width / 2.5, height / 1.25); // Adjust the ratio as needed
+    // Calculate the new font size based on the initial ratios
+    const fontSizeFromWidth = width * widthRatio;
+    const fontSizeFromHeight = height * heightRatio;
 
-    // Only update the font size if it's larger than the initial font size
-    if (fontSize > initialFontSize) {
-      nameElement.style.fontSize = `${fontSize}px`;
-    }
+    // Use the smaller value to ensure the text fits within the container
+    const fontSize = Math.min(fontSizeFromWidth, fontSizeFromHeight);
+
+    // Apply the new font size
+    nameElement.style.fontSize = `${fontSize}px`;
   }
 });
 
 // Start observing the #name element
 resizeObserver.observe(nameElement);
-

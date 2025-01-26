@@ -17,14 +17,10 @@ body{
   display: visible;
 }
 #name{
-  display: flex;
-  transform: translateY(0.1em);
-  align-items: center; /* Vertically center the text */
-  justify-content: center; /* Horizontally center the text */
   resize: both; /* Allows the element to be resized */
   overflow: hidden; /* Ensures content doesn't overflow */
   font-size: 15em; /* Initial font size */
-  display: inline-block; /* Ensures the element resizes properly */
+  display: block; /* Ensures the element resizes properly */
   min-width: 100px; /* Minimum width to avoid collapsing */
   min-height: 50px; /* Minimum height to avoid collapsing */
   color: var(--secondary-color); /* Text color */
