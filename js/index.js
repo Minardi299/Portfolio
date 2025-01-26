@@ -33,5 +33,26 @@ const observer = new IntersectionObserver((entries) =>{
 });
 const hiddenElement = document.querySelectorAll('.hidden');
 hiddenElement.forEach((el)=> observer.observe(el));
+const nameElement = document.getElementById("name");
 
+// Store the initial font size
+const initialFontSize = parseFloat(window.getComputedStyle(nameElement).fontSize);
+
+// Create a ResizeObserver to detect changes in the element's size
+const resizeObserver = new ResizeObserver((entries) => {
+  for (let entry of entries) {
+    const { width, height } = entry.contentRect;
+
+    // Adjust font size based on the width of the element
+    const fontSize = Math.min(width / 2.5, height / 1.25); // Adjust the ratio as needed
+
+    // Only update the font size if it's larger than the initial font size
+    if (fontSize > initialFontSize) {
+      nameElement.style.fontSize = `${fontSize}px`;
+    }
+  }
+});
+
+// Start observing the #name element
+resizeObserver.observe(nameElement);
 
