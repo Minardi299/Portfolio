@@ -49,17 +49,53 @@ a:hover {
   display: flex;
   justify-content: center; /* Centers the content horizontally */
   align-items: center; /* Centers the content vertically */
-  height: 60vh; /* Full viewport height */
+  height: 100vh; /* Full viewport height */
   
 }
+.bg {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 150% 100%;
+  background-image: linear-gradient(-10deg, var(--lighter-main-color) 0%, var(--lighter-main-color) 25%, var(--main-color) 51%,var(--main-color) 100%);
+  -webkit-animation: AnimateBG 10s ease infinite;
+          animation: AnimateBG 10s ease infinite;
+}
 
+@-webkit-keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .hero-content {
   display: flex;
   justify-content: space-evenly; /* Creates space between the text and the button */
   align-items: center; /* Ensures vertical alignment */
   width: 50%; /* Keeps the content in the middle, adjust as needed */
 }
-
+.hero-content ul{
+  width: 100dvw;
+}
 .hero-text {
 
   text-align: left; /* Left-align the text */
