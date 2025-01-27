@@ -1,9 +1,21 @@
 body{
-    background-color: blue;
+  background-image: url("../images/natfl020.jpg"); /* Path to your image */
+  background-repeat: repeat; /* Repeat the image across the page */
+  background-size: auto; /* Use the original size of the image */
+  text-align: center; /* Center-align text */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
 }
 .alligator{
   display: visible;
 }
 .normal{
   display: none;
+}
+.about-photo {
+  vertical-align: top;
+}
+img{
+  width: 300;
+  height: 300;
 }

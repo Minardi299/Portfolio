@@ -26,6 +26,9 @@ body{
   color: var(--secondary-color); /* Text color */
   position: relative; /* Required for positioning the indicator */  
 }
+#name:hover{
+  border: 2px dashed var(--lighter-secondary-color); 
+}
 /* this is the small square that indicates the element is resizeable */
 #name::after {
   content: "";
@@ -71,8 +74,8 @@ a:hover {
   justify-content: center;
   background-size: 150% 100%;
   background-image: linear-gradient(-8deg, var(--lighter-main-color) 0%, var(--lighter-main-color) 25%, var(--main-color) 51%,var(--main-color) 100%);
-  -webkit-animation: AnimateBG 10s ease infinite;
-          animation: AnimateBG 10s ease infinite;
+  -webkit-animation: AnimateBG 5s ease infinite;
+          animation: AnimateBG 5s ease infinite;
 }
 
 @-webkit-keyframes AnimateBG {
@@ -208,4 +211,86 @@ section{
   .hidden{
     transition: none;
   }
+}
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-box {
+  background: var(--lighter-main-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#project-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#project-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--main-color);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh; /* Limit height to 80% of viewport */
+  overflow-y: auto; /* Make content scrollable if it exceeds height */
+  color: var(--third-color);
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+}
+
+.modal-content .close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--third-color);
+  cursor: pointer;
+}
+
+/* Blur effect for the background when modal is open */
+body.modal-open {
+  overflow: hidden; /* Prevent scrolling */
+}
+
+body.modal-open main {
+  filter: blur(5px); /* Blur the main content */
+  pointer-events: none; /* Disable interactions with blurred content */
 }

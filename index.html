@@ -13,8 +13,13 @@
     <script defer src="js/index.js"></script>
   </head>
 
-  <body>
+  <body >
     <main>
+      <CENTER class="alligator"><H1><IMG SRC="images/welcome.gif"></H1></CENTER>
+      <hr class="alligator">
+      <h2 class="alligator"><FONT SIZE=4 face="papyrus">About me!!!! I'm Minh!!</FONT></h2>
+      <img src="PAT-AboutPhoto.png" class="alligator">
+
       <aside class="sidebar normal">
         <nav class="nav">
           <ul>
@@ -52,7 +57,6 @@
           </div>
         </div>
       </section>
-      <!-- <div id="gradient"></div> -->
       <section id="about">
         <p  class="hidden">About me.</p>
         <p class="hidden">My name is Ed Hinrichsen, I'm an award-winning web dev / digital designer and full stack software engineer. I have a passion for all things technology and design, from software engineering & machine learning to UI/UX & 3D graphics.
@@ -61,8 +65,34 @@
           
           Below are details of some of the projects I have developed over my fifteen plus years of coding experience.</p>
       </section>
-      <section id="projects" >
-       
+      <section id="projects">
+        <div class="projects-container">
+          <article class="project-box" data-title="Project 1" data-details="Details about Project 1">
+            <h2>Project 1</h2>
+            <p>Subtitle 1</p>
+          </article>
+          <article class="project-box" data-title="Project 2" data-details="Details about Project 2">
+            <h2>Project 2</h2>
+            <p>Subtitle 2</p>
+          </article>
+          <article class="project-box" data-title="Project 3" data-details="Details about Project 3">
+            <h2>Project 3</h2>
+            <p>Subtitle 3</p>
+          </article>
+          <article class="project-box" data-title="Project 4" data-details="Details about Project 4">
+            <h2>Project 4</h2>
+            <p>Subtitle 4</p>
+          </article>
+        </div>
+        
+        <!-- Modal for project details -->
+        <div id="project-modal" class="project-hidden">
+          <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 id="modal-title"></h2>
+            <p id="modal-details"></p>
+          </div>
+        </div>
       </section>
        
 
