@@ -2,9 +2,10 @@ body{
   background-image: url("../images/natfl020.jpg"); /* Path to your image */
   background-repeat: repeat; /* Repeat the image across the page */
   background-size: auto; /* Use the original size of the image */
-  text-align: center; /* Center-align text */
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
+  font-weight: bold;
+ 
 }
 .alligator{
   display: visible;
@@ -16,6 +17,30 @@ body{
   vertical-align: top;
 }
 img{
-  width: 300;
-  height: 300;
+  width: 150;
+  height: 150;
+}
+a{
+  font-size: 1.5em; 
+}
+ul {
+  list-style-type: none;
+}
+.center{
+  text-align: center;
+}
+p{
+  font-size:x-large;
+  margin: 0 20vw 0 5vw;
+}
+.hero-button{
+  text-align: center;
+}
+.hero-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+#aboutimg{
+  margin: 0 5vw 0 7vw;
 }
