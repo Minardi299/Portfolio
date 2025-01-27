@@ -24,6 +24,8 @@ body{
   min-width: 100px; /* Minimum width to avoid collapsing */
   min-height: 50px; /* Minimum height to avoid collapsing */
   color: var(--secondary-color); /* Text color */
+  border: 2px dashed var(--lighter-secondary-color); 
+  
 }
 h1,h2{
   font-weight: bold;
