@@ -106,12 +106,16 @@ a:hover {
     background-position: 0% 50%;
   }
 }
+ul.hero-content {
+  width: 100%;
+}
 .hero-content {
   display: flex;
   justify-content: space-evenly; /* Creates space between the text and the button */
   align-items: center; /* Ensures vertical alignment */
   width: 50%; /* Keeps the content in the middle, adjust as needed */
 }
+.hero-content 
 .hero-content ul{
   width: 100dvw;
 }
