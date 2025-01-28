@@ -273,7 +273,7 @@ section{
 }
 .blur-no-scroll{
   overflow: hidden;
-  filter: blur(5px); /* Blur the main content */
-  pointer-events: none; /* Disable interactions with blurred content */
+  filter: blur(5px); 
+  pointer-events: none; 
 }
 

@@ -70,13 +70,15 @@ let modals = document.querySelectorAll('.modal');
 function showModal(id){
   let m = document.getElementById(id);
   m.classList.add('modal-open');
-  let body = document.querySelector('body');
+  let body = document.querySelector('main');
+  body.classList.add('blur-no-scroll');
 }
 function hideModals() {
   modals.forEach(m => {
     m.classList.remove('modal-open');
   });
-  let body = document.querySelector('body');
+  let body = document.querySelector('main');
+  body.classList.remove('blur-no-scroll');
 }
 
 // Open modal when a project box is clicked
