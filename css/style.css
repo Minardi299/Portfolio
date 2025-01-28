@@ -115,6 +115,7 @@ a:hover {
 }
 ul.hero-content {
   width: 100%;
+  padding-left: 0px;
 }
 .hero-content {
   display: flex;
