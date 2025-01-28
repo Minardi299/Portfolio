@@ -63,36 +63,32 @@ const resizeObserver = new ResizeObserver((entries) => {
 
 // Start observing the #name element
 resizeObserver.observe(nameElement);
+
 const projectBoxes = document.querySelectorAll('.project-box');
-const modal = document.getElementById('project-modal');
-const modalTitle = document.getElementById('modal-title');
-const modalDetails = document.getElementById('modal-details');
-const closeModalButton = document.querySelector('.close-modal');
+let modals = document.querySelectorAll('.modal');
+
+function showModal(id){
+  let m = document.getElementById(id);
+  m.classList.add('modal-open');
+  let body = document.querySelector('body');
+}
+function hideModals() {
+  modals.forEach(m => {
+    m.classList.remove('modal-open');
+  });
+  let body = document.querySelector('body');
+}
 
 // Open modal when a project box is clicked
 projectBoxes.forEach(box => {
   box.addEventListener('click', () => {
-    const title = box.getAttribute('data-title');
-    const details = box.getAttribute('data-details');
-
-    modalTitle.textContent = title;
-    modalDetails.textContent = details;
-
-    modal.classList.add('show');
-    document.body.classList.add('modal-open');
+    hideModals();
+    showModal(box.dataset.modal);
   });
 });
 
-// Close modal when the close button is clicked
-closeModalButton.addEventListener('click', () => {
-  modal.classList.remove('show');
-  document.body.classList.remove('modal-open');
-});
-
 // Close modal when clicking outside the modal content
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.classList.remove('show');
-    document.body.classList.remove('modal-open');
-  }
+modals.forEach(modal =>{
+  let x = modal.querySelector('button.close-modal-btn');
+  x.addEventListener('click',hideModals);
 });

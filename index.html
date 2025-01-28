@@ -74,6 +74,7 @@
         </TABLE>
       </section>
       <section id="about">
+        <img class="hidden normal" src="images/about.jpg" alt="">
         <p  class="hidden">About me.</p>
         <p class="hidden">My name is Ed Hinrichsen, I'm an award-winning web dev / digital designer and full stack software engineer. I have a passion for all things technology and design, from software engineering & machine learning to UI/UX & 3D graphics.
 
@@ -83,30 +84,43 @@
       </section>
       <section id="projects" >
         <div class="projects-container hidden">
-          <article class="project-box" data-title="Project 1" data-details="Details about Project 1">
+          <article class="project-box" data-modal="project-1">
             <h2>Project 1</h2>
             <p>Subtitle 1</p>
           </article>
-          <article class="project-box" data-title="Project 2" data-details="Details about Project 2">
+          <article class="project-box"  data-modal="project-2">
             <h2>Project 2</h2>
             <p>Subtitle 2</p>
           </article>
-          <article class="project-box" data-title="Project 3" data-details="Details about Project 3">
+          <article class="project-box"  data-modal="project-3">
             <h2>Project 3</h2>
             <p>Subtitle 3</p>
           </article>
-          <article class="project-box" data-title="Project 4" data-details="Details about Project 4">
+          <article class="project-box"  data-modal="project-4">
             <h2>Project 4</h2>
             <p>Subtitle 4</p>
           </article>
         </div>
-        
-        <!-- Modal for project details -->
-        <div id="project-modal" class="project-hidden">
-          <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <h2 id="modal-title"></h2>
-            <p id="modal-details"></p>
+
+
+
+
+        <div id="modal-container">
+          <!-- Modal content -->
+          <div id="project-1" class="modal">
+            <button class="close-modal-btn">&times;</button>
+            <h2>Project 1</h2>
+            <p>description of the project 1</p>
+          </div>
+          <div id="project-2" class="modal">
+            <button class="close-modal-btn">&times;</button>
+            <h2>Project 2</h2>
+            <p>description of the project 2</p>
+          </div>
+          <div id="project-3" class="modal">
+            <button class="close-modal-btn">&times;</button>
+            <h2>Project 3</h2>
+            <p>description of the project 3</p>
           </div>
         </div>
       </section>
