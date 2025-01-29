@@ -94,3 +94,46 @@ modals.forEach(modal =>{
   let x = modal.querySelector('button.close-modal-btn');
   x.addEventListener('click',hideModals);
 });
+function updateTime() {
+  let now = new Date();
+  
+  // Get day name abbreviation (e.g., "Tues")
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let day = days[now.getDay()];
+
+  // Get month name abbreviation (e.g., "May")
+  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  let month = months[now.getMonth()];
+
+  // Get date, year, and time
+  let date = now.getDate();
+  let year = now.getFullYear();
+  
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+  
+  // Convert to 12-hour format and determine AM/PM
+  let ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12 || 12; // Convert 0 to 12 for 12-hour format
+
+  // Ensure two-digit format for minutes and seconds
+  minutes = minutes.toString().padStart(2, "0");
+  seconds = seconds.toString().padStart(2, "0");
+
+  // Get GMT offset
+  let timeZoneOffset = -now.getTimezoneOffset() / 60;
+  let gmtString = `(GMT${timeZoneOffset >= 0 ? "+" : ""}${timeZoneOffset})`;
+
+  // Construct the formatted string
+  let formattedTime = `Montreal, QC ${gmtString}\n ${day}, ${month} ${date}, ${year}, ${hours}:${minutes}:${seconds} ${ampm} `;
+
+  // Update the DOM
+  document.getElementById('current-time').innerText = formattedTime;
+}
+
+// Update time immediately when the page loads
+updateTime();
+
+// Update time every second
+setInterval(updateTime, 1000);
