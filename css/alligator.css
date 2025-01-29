@@ -48,12 +48,26 @@ p{
   padding: 2rem;
 }
 .project-box {
-  margin-left: 1rem; /* Adds 1rem of left margin */
+  margin-left: 2rem; /* Adds 1rem of left margin */
+  margin-top: 2rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Initial shadow */
+
+  border-top: 5px solid rgba(0, 0, 0, 0.3); /* Top border becomes gray */
+  border-left: 5px solid rgba(0, 0, 0, 0.3); /* Left border becomes gray */
+  border-bottom: 5px solid rgb(223, 223, 223,0.3); ; /* Bottom border becomes white */
+  border-right: 5px solid rgb(223, 223, 223,0.3); ; /* Right border becomes white */
 }
 
 .project-box:hover {
-  border: 1px solid; /* Adds a 1px solid border on hover */
+  transform: translateY(-2px); /* Slight upward movement for pop-up effect */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect */
+  border-top: 5px solid rgb(223, 223, 223,0.3); /* Top border becomes white */
+  border-left: 5px solid rgb(223, 223, 223,0.3); /* Left border becomes white */
+  border-bottom: 5px solid rgba(0, 0, 0, 0.3); /* Bottom border shadow effect */
+  border-right: 5px solid rgba(0, 0, 0, 0.3); /* Right border shadow effect */
 }
+
+
 .modal{
   position: fixed;
   top: 0;
