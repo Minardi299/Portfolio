@@ -7,9 +7,9 @@ body{
   --lighter-secondary-color: #facf7e;
   background-color: var(--main-color);
   padding-top: 1dvh;
-  font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
-
+  font-family: "Inter Tight", serif;
+  font-weight: bold;
 
 }
 .alligator{
@@ -36,14 +36,25 @@ body{
 }
 /* this is the small square that indicates the element is resizeable */
 #name::after {
-  content: "";
+
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 0.8rem; 
-  height: 0.8rem; 
-  background-color: var(--secondary-color); 
-  cursor: se-resize; 
+  font-size: 10%; /* Adjust size as needed */
+  max-width: 20%;
+  max-height: 20%;
+  color: var(--secondary-color); /* Arrow color */
+  cursor: se-resize;
+  line-height: 1; /* Ensure proper alignment */
+
+  /*alternative*/
+  content: "";
+   border-bottom: 0.8rem solid var(--secondary-color);/* Arrow size and color */
+  border-left: 0.8rem solid transparent; /* Creates the arrowhead shape */
+  width: 0;
+  height: 0;
+}
+::-webkit-resizer {
 }
 h1,h2{
   font-weight: bold;
@@ -73,10 +84,11 @@ a:hover {
 }
 .bg {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: 150% 100%;
   background-image: linear-gradient(-8deg, var(--lighter-main-color) 0%, var(--lighter-main-color) 25%, var(--main-color) 51%,var(--main-color) 100%);
   -webkit-animation: AnimateBG 5s ease infinite;
           animation: AnimateBG 5s ease infinite;
@@ -151,7 +163,6 @@ ul.hero-content {
 }
 .nav {
   position: relative;
-
   top: 50%;
   transform: translateY(-50%);
   font-weight: bold;
@@ -196,6 +207,24 @@ section:not(#hero) {
   padding-top: 5dvh;
   background-color: var(--lighter-main-color);
 }
+#about > * {
+  max-width: 50dvw; /* Ensure children don't exceed 50% of the viewport width */
+  margin: 0 auto; /* Center the children horizontally */
+  text-align: justify; /* Justify the text for better readability */
+}
+
+#about p {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  line-height: 2; /* Increase line height to add vertical space */
+  margin-bottom: 1.5rem; /* Add space between paragraphs */
+}
+
+#about img {
+  border-radius: 10%;
+  max-width: 100%; /* Ensure the image doesn't exceed the parent's width */
+  height: auto; /* Maintain aspect ratio */
+}
 section{
   display: grid;
   place-items: center;
@@ -220,27 +249,53 @@ section{
 }
 .projects-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5rem 5rem;
   padding: 2rem;
   max-width: 80%;
   margin: 0 auto;
 }
 
 .project-box {
-  background: var(--lighter-main-color);
-  border: 1px solid var(--secondary-color);
+  background: var(--main-color);
   border-radius: 8px;
   padding: 1.5rem;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
+  position: relative; /* Required for pseudo-element positioning */
+  overflow: hidden; /* Ensures the blur effect doesn't overflow */
+  width: 15dvw;
+  aspect-ratio: 16 / 9;
+  border: 1px solid transparent; /* Add a transparent border to prevent layout shift */
 }
 
 .project-box:hover {
-  transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.5s ease;
+  background-color: var(--lighter-main-color);
+  border: 1px solid var(--secondary-color);
 }
+
+.project-box:hover::before {
+  content: "expand"; /* Text to display on hover */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  pointer-events: none; /* Prevents the text from blocking clicks */
+  transition: opacity 0.5s ease-in-out; /* Slower and smoother transition for the text */
+}
+
+.project-box:hover h2,
+.project-box:hover p {
+  opacity: 0; /* Hides the original text on hover */
+  transition: opacity 0.3s ease;
+}
+
 
 .modal{
   position: fixed;
@@ -253,22 +308,13 @@ section{
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.6); 
-  opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s ease;
-  z-index: 1000;
+  opacity: 0;
+  z-index: 11;
   
 }
-.modal button.close-modal-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  border: 0;
-  background: transparent;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: white;
-}
+
 .modal-open {
   opacity: 1;
   pointer-events: all;
@@ -278,4 +324,33 @@ section{
   filter: blur(5px); 
   pointer-events: none; 
 }
-
+.modal-card {
+  background-color: var(--main-color);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 80%; /* Adjust width as needed */
+  max-width: 600px; /* Maximum width for larger screens */
+  position: relative; /* Required for positioning the close button */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+  color: var(--third-color); /* Text color */
+}
+.modal-card button.close-modal-btn {
+  position: absolute;
+  top: 0.5rem; /* Adjust distance from the top */
+  right: 0.5rem; /* Adjust distance from the right */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--lighter-secondary-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.modal-card p{
+  font-weight: normal;
+}
+.modal-card a{
+  letter-spacing: 0.1em;
+}
+.modal-card h3{
+  color: green;
+}

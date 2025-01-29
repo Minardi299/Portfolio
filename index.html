@@ -20,7 +20,7 @@
         <nav class="nav">
           <ul>
             <li>
-              <a href="#hero">HOME</a>
+              <a href="#contact">HOME</a>
             </li>
             <li>
               <a href="#about">ABOUT</a>
@@ -36,12 +36,12 @@
         <IMG  class="alligator center" SRC="images/welcome.gif">
       </Center>
       <hr class="alligator">
-      <ul class="hero-content">
+      <ul id="contact" class="hero-content">
         <li class="alligator"><a target="_blank" href="https://open.spotify.com/user/ge7ibsztbcdxkj0umooh7av6l?si=56600db326404ff7">Spotify</a></li>
         <li class="normal"><a target="_blank"  href="https://www.linkedin.com/in/minh-phu-ngo-79b5a32b0/">Linkedln</a></li>
         <li><a target="_blank"  href="https://github.com/Minardi299">Github</a></li>
         <li><a target="_blank" href="mailto:phu.ngo@outlook.com">Contact</a></li>
-        <li class="alligator"><a target="_blank"  href="">Dont click</a></li>
+        <li class="alligator"><a target="_blank" href="">Dont click</a></li>
       </ul> 
       <section id="hero" class="bg active">
         <div class="hero-content">
@@ -49,6 +49,7 @@
             <p class="no-margin">Hi! My name is</p>
             <h1 id="name" class="no-margin hidden">minh</h1>
             <h3 class="no-margin">Junior developer</h3>
+            <h4 id="current-time"></h4>
           </div>
           <div class="hero-button">
             <!-- From Uiverse.io by vinodjangid07 --> 
@@ -75,57 +76,108 @@
       </section>
       <section id="about">
         <img class="hidden normal" src="images/about.jpg" alt="">
-        <p  class="hidden">About me.</p>
-        <p class="hidden">My name is Ed Hinrichsen, I'm an award-winning web dev / digital designer and full stack software engineer. I have a passion for all things technology and design, from software engineering & machine learning to UI/UX & 3D graphics.
-
-          In addition to my love of technology and design, I am also interested in education, history, economics and politics.
-          
-          Below are details of some of the projects I have developed over my fifteen plus years of coding experience.</p>
+        <p  class="hidden normal">About me.</p>
+        <p class="hidden">
+          My name is Minh and you can call me Minh.
+          I'm a Computer Science student and a Junior Software Developer.
+          Outside of tech, I swim I run and I want to do a triathlon by September next year. I did robotic and theatre club, swim and rowing team.
+        </p>
       </section>
       <section id="projects" >
         <div class="projects-container hidden">
           <article class="project-box" data-modal="project-1">
-            <h2>Project 1</h2>
-            <p>Subtitle 1</p>
+            <h2>Blazor Google Wallet ID Pass Generator</h2>
+            <p>.NET C#</p>
           </article>
           <article class="project-box"  data-modal="project-2">
-            <h2>Project 2</h2>
-            <p>Subtitle 2</p>
+            <h2>Kotlin Book Reading App - School project</h2>
+            <p>Jetpack Compose</p>
           </article>
           <article class="project-box"  data-modal="project-3">
-            <h2>Project 3</h2>
-            <p>Subtitle 3</p>
+            <h2>Blazor Flight Tracker Web Application </h2>
+            <p>.Net Blazor</p>
           </article>
           <article class="project-box"  data-modal="project-4">
-            <h2>Project 4</h2>
-            <p>Subtitle 4</p>
+            <h2>Full-Stack Website - School project </h2>
+            <p>MERN Stack</p>
+          </article>
+          <article class="project-box"  data-modal="project-5">
+            <h2>Image processing-OCR script</h2>
+            <p>Python OCR</p>
           </article>
         </div>
-
-
-
-
-        
       </section>
-       
-
     </main>
+
     <div id="modal-container">
       <!-- Modal content -->
       <div id="project-1" class="modal">
-        <button class="close-modal-btn">&times;</button>
-        <h2>Project 1</h2>
-        <p>description of the project 1</p>
+        <article class="modal-card">
+          <button class="close-modal-btn">&times;</button>
+          <h2>Blazor Google Wallet ID Pass Generator</h2>
+          <h3>.NET Blazor - C# - Google Wallet API - JWT</h3>
+          <p>Developed a Blazor web application that allows users to generate a Google Wallet pass for company/school IDs by 
+            submitting required details such as name, phone number, etc.</p>
+          <p>Integrated the Google Wallet API to create and manage wallet objects, enabling users to add a customized pass 
+            directly to their Google Wallet.</p>
+          <p>Utilized JWT (JSON Web Tokens) for secure API authentication, ensuring safe and encrypted communication between 
+            the application and Google services. </p>
+          <p>Designed the user interface using Blazor components to provide a UI for entering data and 
+            receiving a pass link.</p>
+          <a href="">source code↗</a>
+        </article>
       </div>
       <div id="project-2" class="modal">
-        <button class="close-modal-btn">&times;</button>
-        <h2>Project 2</h2>
-        <p>description of the project 2</p>
+        <article class="modal-card">
+          <button class="close-modal-btn">&times;</button>
+          <h2>Book Reading App</h2>
+          <h3>Jetpack Compose - Room Database</h3>
+          <p></p>
+      </article>
       </div>
       <div id="project-3" class="modal">
-        <button class="close-modal-btn">&times;</button>
-        <h2>Project 3</h2>
-        <p>description of the project 3</p>
+        <article class="modal-card">
+          <button class="close-modal-btn">&times;</button>
+          <h2>Blazor Flight Tracker Web Application</h2>
+          <h3>.NET Blazor - Boostrap - C# - AviationStack API</h3>
+          <p>Still in developement</p>
+          <p>Created a flight tracker web application using Blazor and the MudBlazor component library, focusing on ease of use 
+            and a clean, Material Design-inspired user interface. </p>
+          <p>Integrated the AviationStack API to provide users with real-time flight information by entering details such as flight code, 
+            airport code, etc.. </p>
+          <p> Developed features to display comprehensive flight data, including departure times, arrival times, airports, and flight 
+            statuses, ensuring users receive accurate and detailed information. </p>
+          <p>Utilized MudBlazor components for a responsive, user-friendly UI </p>
+          <a href="">source code↗</a>
+      </article>
+      </div>
+      <div id="project-4" class="modal">
+        <article class="modal-card">
+          <button class="close-modal-btn">&times;</button>
+          <h2>On the Record Website</h2>
+          <h3>Mongo - Express - React - Node.js</h3>
+          <p>Developed a modern full stack website using the MERN stack, with MongoDBas the database, Express for server-side 
+            routing, React for a dynamic and responsive user interface and Node.js for backend logic.  </p>
+          <p>Implemented a responsive and performance-optimized UI with accessibility in mind, including server/client caching, 
+            server-side compression, optimized above fold css and javascript loading, minimized page load times.  </p>
+          <p> Built a robust and scalable backend, using MongoDB for data storage and performing efficient data filtering within 
+            queries to reduce client-side load.</p>
+          <p>Test-Driven Development (TDD) using the Mocha/Chai for unit testing along with Supertest and Sinon for integration 
+            testing.</p>
+          <p>Designed and documented API endpoints for seamless data retrieval using Swagger.</p>
+          <p>Fully Implemented a CI/CD pipeline to automate testing and build processes, ensuring reliable deployment of website 
+            on both AWS virtual machine and Render.</p>
+          <a href="">website↗</a>
+      </article>
+      </div>
+      <div id="project-5" class="modal">
+        <article class="modal-card">
+          <button class="close-modal-btn">&times;</button>
+          <h2>Image processing-OCR script</h2>
+          <h3>Python - Google Tesseract - OpenCV</h3>
+          
+          <a href="">source code↗</a>
+      </article>
       </div>
     </div>
   </body>
