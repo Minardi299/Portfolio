@@ -4,8 +4,10 @@ const stylesheet = document.getElementById("stylesheet");
 themeToggle.addEventListener("change", function() {
   if (this.checked) {
     stylesheet.setAttribute("href", "css/alligator.css");
+    hideModals();
   } else {
     stylesheet.setAttribute("href", "css/style.css");
+    hideModals();
   }
 });
 const links = document.querySelectorAll('.nav ul li');
