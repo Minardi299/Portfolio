@@ -49,7 +49,6 @@ body{
   color: var(--secondary-color); /* Arrow color */
   cursor: se-resize;
   line-height: 1; /* Ensure proper alignment */
-
   /*alternative*/
   content: "";
    border-bottom: 0.8rem solid var(--secondary-color);/* Arrow size and color */
