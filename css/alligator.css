@@ -50,24 +50,28 @@ p{
 .project-box {
   margin-left: 2rem; /* Adds 1rem of left margin */
   margin-top: 2rem;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Initial shadow */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Initial shadow */
 
-  border-top: 5px solid rgba(0, 0, 0, 0.3); /* Top border becomes gray */
-  border-left: 5px solid rgba(0, 0, 0, 0.3); /* Left border becomes gray */
-  border-bottom: 5px solid rgb(223, 223, 223,0.3); ; /* Bottom border becomes white */
-  border-right: 5px solid rgb(223, 223, 223,0.3); ; /* Right border becomes white */
+  border-top: 5px solid rgba(0, 0, 0, 0.5); /* Top border becomes gray */
+  border-left: 5px solid rgba(0, 0, 0, 0.5); /* Left border becomes gray */
+  border-bottom: 5px solid rgb(223, 223, 223,0.5); ; /* Bottom border becomes white */
+  border-right: 5px solid rgb(223, 223, 223,0.5); ; /* Right border becomes white */
 }
 
 .project-box:hover {
   transform: translateY(-2px); /* Slight upward movement for pop-up effect */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Enhanced shadow effect */
-  border-top: 5px solid rgb(223, 223, 223,0.3); /* Top border becomes white */
-  border-left: 5px solid rgb(223, 223, 223,0.3); /* Left border becomes white */
-  border-bottom: 5px solid rgba(0, 0, 0, 0.3); /* Bottom border shadow effect */
-  border-right: 5px solid rgba(0, 0, 0, 0.3); /* Right border shadow effect */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Enhanced shadow effect */
+  border-top: 5px solid rgb(223, 223, 223,0.5); /* Top border becomes white */
+  border-left: 5px solid rgb(223, 223, 223,0.5); /* Left border becomes white */
+  border-bottom: 5px solid rgba(0, 0, 0, 0.5); /* Bottom border shadow effect */
+  border-right: 5px solid rgba(0, 0, 0, 0.5); /* Right border shadow effect */
 }
 
-
+.blur-no-scroll{
+  overflow: hidden;
+  filter: blur(5px); 
+  pointer-events: none; 
+}
 .modal{
   position: fixed;
   top: 0;
@@ -84,4 +88,30 @@ p{
   opacity: 0;
   z-index: 11;
   
+}
+
+.modal-card {
+  background-color: var(--main-color);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 80%; /* Adjust width as needed */
+  max-width: 600px; /* Maximum width for larger screens */
+  position: relative; /* Required for positioning the close button */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+  color: var(--third-color); /* Text color */
+}
+.modal-open {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-card button.close-modal-btn {
+  position: absolute;
+  top: 0.5rem; /* Adjust distance from the top */
+  right: 0.5rem; /* Adjust distance from the right */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--lighter-secondary-color);
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
