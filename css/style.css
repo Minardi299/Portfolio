@@ -1,12 +1,5 @@
 
-@font-face {
-  font-family: 'BreadSauce';
-  src: url('fonts/MyFont.woff2') format('woff2'),
-       url('fonts/MyFont.woff') format('woff'),
-       url('fonts/MyFont.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+
 body{
   --main-color: #1e1e1e;
   --lighter-main-color:#878787;
@@ -37,6 +30,9 @@ body{
   /* tweak if text doesnt fit */
   max-width: 50dvw;
   max-height: 50dvh;
+  transition: all 1s;
+  font-family: 'Barrio';
+
 }
 #name:hover{
   border: 2px dashed var(--lighter-secondary-color); 
