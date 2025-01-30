@@ -272,11 +272,14 @@ section{
   transition: transform 0.3s, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
   position: relative; /* Required for pseudo-element positioning */
   overflow: hidden; /* Ensures the blur effect doesn't overflow */
-  width: 15dvw;
+  width: 15vw;
   aspect-ratio: 16 / 9;
   border: 1px solid transparent; /* Add a transparent border to prevent layout shift */
 }
-
+.project-box h2,
+.project-box p {
+  font-size: 1vw; /* Use vw for responsive font size */
+}
 .project-box:hover {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s, filter 0.5s ease;
@@ -302,7 +305,40 @@ section{
   opacity: 0; /* Hides the original text on hover */
   transition: opacity 0.3s ease;
 }
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    gap: 2rem 2rem;
+  }
+  
+  .project-box {
+    width: 30vw; /* Adjust width for smaller screens */
+  }
 
+  .project-box h2,
+  .project-box p {
+    font-size: 1em; /* Scale font size */
+  }
+}
+
+@media (max-width: 480px) {
+  #name{
+    font-size: 5em;
+  }
+  .projects-container {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    gap: 1rem 1rem;
+  }
+  
+  .project-box {
+    width: 50vw; /* Adjust width for mobile screens */
+  }
+
+  .project-box h2,
+  .project-box p {
+    font-size: 0.9em; /* Scale font size */
+  }
+}
 
 .modal{
   position: fixed;
