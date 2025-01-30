@@ -235,8 +235,8 @@ section{
   place-items: center;
   align-content: center;
   min-height: 80vh;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 .hidden{
   opacity: 0;
@@ -305,41 +305,6 @@ section{
   opacity: 0; /* Hides the original text on hover */
   transition: opacity 0.3s ease;
 }
-@media (max-width: 768px) {
-  .projects-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-    gap: 2rem 2rem;
-  }
-  
-  .project-box {
-    width: 30vw; /* Adjust width for smaller screens */
-  }
-
-  .project-box h2,
-  .project-box p {
-    font-size: 1em; /* Scale font size */
-  }
-}
-
-@media (max-width: 480px) {
-  #name{
-    font-size: 5em;
-  }
-  .projects-container {
-    grid-template-columns: 1fr; /* 1 column on mobile */
-    gap: 1rem 1rem;
-  }
-  
-  .project-box {
-    width: 50vw; /* Adjust width for mobile screens */
-  }
-
-  .project-box h2,
-  .project-box p {
-    font-size: 0.9em; /* Scale font size */
-  }
-}
-
 .modal{
   position: fixed;
   top: 0;
@@ -395,4 +360,38 @@ section{
 }
 .modal-card h3{
   color: green;
+}
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    gap: 2rem 2rem;
+  }
+  
+  .project-box {
+    width: 30vw; /* Adjust width for smaller screens */
+  }
+
+  .project-box h2,
+  .project-box p {
+    font-size: 1em; /* Scale font size */
+  }
+}
+
+@media (max-width: 480px) {
+  #name{
+    font-size: 5em;
+  }
+  .projects-container {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    gap: 1rem 1rem;
+  }
+  
+  .project-box {
+    width: 50vw; /* Adjust width for mobile screens */
+  }
+
+  .project-box h2,
+  .project-box p {
+    font-size: 0.9em; /* Scale font size */
+  }
 }
