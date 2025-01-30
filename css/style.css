@@ -336,7 +336,9 @@ section{
   border-radius: 12px;
   padding: 2rem;
   width: 80%; /* Adjust width as needed */
-  max-width: 600px; /* Maximum width for larger screens */
+  max-width: 40dvw; /* Maximum width for larger screens */
+  max-height: 80dvh;
+  overflow-y: auto;
   position: relative; /* Required for positioning the close button */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
   color: var(--third-color); /* Text color */
@@ -375,6 +377,11 @@ section{
   .project-box p {
     font-size: 1em; /* Scale font size */
   }
+  .modal-card {
+    max-width: 80dvw; /* Maximum width for larger screens */
+    max-height: 90dvh;
+    overflow-y: auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -393,5 +400,13 @@ section{
   .project-box h2,
   .project-box p {
     font-size: 0.9em; /* Scale font size */
+  }
+  .modal-card {
+
+
+    max-width: 80dvw; /* Maximum width for larger screens */
+    max-height: 90dvh;
+    overflow-y: auto;
+   
   }
 }
