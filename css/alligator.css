@@ -103,6 +103,7 @@ p{
   max-height: 80dvw;
   border-radius: 8px;
   position: relative;
+  overflow-y: auto;
 }
 
 /* The Close Button */
@@ -120,4 +121,10 @@ p{
 .close-modal-btn:focus {
   color: #000;
   text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  aside{
+    display: none;
+  }
 }
