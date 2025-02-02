@@ -409,4 +409,7 @@ section{
     overflow-y: auto;
    
   }
+  .sidebar{
+    display: none;
+  }
 }
