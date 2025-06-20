@@ -1,0 +1,419 @@
+
+
+body{
+    --main-color: #1e1e1e;
+    --lighter-main-color:#878787;
+    --secondary-color: #FFA501;
+    --third-color:#f5f5f5;
+    --lighter-secondary-color: #facf7e;
+    --border-radius:12px;
+    background-color: var(--main-color);
+    padding-top: 1dvh;
+    overflow-x: hidden;
+    font-family: "Inter Tight", serif;
+    font-weight: bold;
+  }
+  .heading{
+    color: #fff;
+  }
+  .alligator{
+    display: none;
+  }
+  .normal{
+    display: visible;
+  }
+  #name{
+    resize: both; /* Allows the element to be resized */
+    overflow: hidden; /* Ensures content doesn't overflow */
+    font-size: 15em; /* Initial font size */
+    display: block; /* Ensures the element resizes properly */
+    min-width: 100px; /* Minimum width to avoid collapsing */
+    min-height: 50px; /* Minimum height to avoid collapsing */
+    color: var(--secondary-color); /* Text color */
+    position: relative; /* Required for positioning the indicator */  
+    /* tweak if text doesnt fit */
+    max-width: 50dvw;
+    max-height: 50dvh;
+    font-family: 'Barrio';
+  }
+  #name:hover{
+    border: 2px dashed var(--lighter-secondary-color); 
+  }
+  /* this is the small square that indicates the element is resizeable */
+  #name::after {
+  
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 10%; /* Adjust size as needed */
+    max-width: 20%;
+    max-height: 20%;
+    color: var(--secondary-color); /* Arrow color */
+    cursor: se-resize;
+    line-height: 1; /* Ensure proper alignment */
+    /*alternative*/
+    content: "";
+     border-bottom: 0.8rem solid var(--secondary-color);/* Arrow size and color */
+    border-left: 0.8rem solid transparent; /* Creates the arrowhead shape */
+    width: 0;
+    height: 0;
+  }
+  ::-webkit-resizer {
+  }
+  h1,h2{
+    font-weight: bold;
+    font-family: "Inter Tight", serif;
+    color: var(--secondary-color);
+  }
+  p,h3,h4,h5,h6{
+    color: var(--third-color);
+  }
+  .no-margin{
+    margin: 0;
+  }
+  a {
+    line-height: 1em;
+    text-decoration: none;
+    letter-spacing: 0.4em;
+    display: block;
+    transition: all ease-out 300ms;
+    font-size: 1.2em; 
+    color:var(--secondary-color); 
+  }
+  
+  a:hover {
+    color: var(--lighter-secondary-color); 
+    text-decoration: underline;
+  
+  }
+  .bg {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 150% 100%;
+    background-image: linear-gradient(-8deg, var(--lighter-main-color) 0%, var(--lighter-main-color) 25%, var(--main-color) 51%,var(--main-color) 100%);
+    -webkit-animation: AnimateBG 5s ease infinite;
+            animation: AnimateBG 5s ease infinite;
+  }
+  
+  @-webkit-keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  #hero {
+    display: flex;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    height: 100vh; /* Full viewport height */
+    width: 100vw;
+  }
+  
+  @keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  ul.hero-content {
+    width: 100%;
+    padding-left: 0px;
+  }
+  .hero-content {
+    display: flex;
+    justify-content: space-evenly; /* Creates space between the text and the button */
+    flex-wrap: wrap;
+    align-items: center; /* Ensures vertical alignment */
+    width: 50%; /* Keeps the content in the middle, adjust as needed */
+  }
+  .hero-content 
+  .hero-content ul{
+    width: 100dvw;
+  }
+  .hero-text {
+  
+    text-align: left; /* Left-align the text */
+  }
+  
+  .hero-button {
+    text-align: left; 
+  }
+  
+  #gradient{
+    height: 40vh;
+    background: linear-gradient(to bottom, var(--main-color), var(--lighter-main-color)); /* Gradient background */
+  
+  }
+  .sidebar {
+    position: fixed;
+    width: 5%;
+    height: 50vh;
+    font-size: 0.65em;
+    z-index: 1;
+  }
+  .nav {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+  }
+  ul{
+    list-style: none;
+  }
+  .nav {
+    li {
+      position: relative;
+      margin: 1em 0;
+      a {
+        line-height: 1em;
+        text-decoration: none;
+        letter-spacing: 0.4em;
+        display: block;
+        transition: all ease-out 300ms;
+        font-size: 1.2em; 
+        color:var(--secondary-color); 
+      }
+  
+      &.active a {
+        color: var(--lighter-secondary-color); 
+        font-size: 2em; 
+        font-weight: bold;
+      }
+  
+      &:not(.active)::after {
+        opacity: 0.2;
+      }
+  
+      &:not(.active):hover a {
+        color: var(--lighter-secondary-color);
+        text-decoration: underline;
+      }
+  
+     
+    }
+  }
+  section:not(#hero) {
+    text-align: center; 
+    padding-top: 5dvh;
+    background-color: var(--lighter-main-color);
+  }
+  #about > * {
+    max-width: 50dvw; /* Ensure children don't exceed 50% of the viewport width */
+    margin: 0 auto; /* Center the children horizontally */
+    text-align: justify; /* Justify the text for better readability */
+  }
+  
+  #about p {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    line-height: 2; /* Increase line height to add vertical space */
+    margin-bottom: 1.5rem; /* Add space between paragraphs */
+    background-color: var(--main-color);
+    border-radius: var(--border-radius);
+    padding:1rem;
+    margin-top: 1rem;;
+  }
+  
+  #about img {
+    border-radius: var(--border-radius);
+    max-width: 100%; /* Ensure the image doesn't exceed the parent's width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  section{
+    display: grid;
+    place-items: center;
+    align-content: center;
+    min-height: 80vh;
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+  .hidden{
+    opacity: 0;
+    filter:blur(5px);
+    transform: translateX(-100%);
+    transition: all 1s;
+  }
+  .show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+  @media(prefers-reduced-motion){
+    .hidden{
+      transition: none;
+    }
+  }
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5rem 5rem;
+    padding: 2rem;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  .project-box {
+    background: var(--main-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
+    position: relative; /* Required for pseudo-element positioning */
+    overflow: hidden; /* Ensures the blur effect doesn't overflow */
+    width: 15vw;
+    aspect-ratio: 16 / 9;
+    border: 1px solid transparent; /* Add a transparent border to prevent layout shift */
+  }
+  .project-box h2,
+  .project-box p {
+    font-size: 1vw; /* Use vw for responsive font size */
+  }
+  .project-box:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.5s ease;
+    background-color: var(--lighter-main-color);
+    border: 1px solid var(--secondary-color);
+  }
+  
+  .project-box:hover::before {
+    content: "expand"; /* Text to display on hover */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    pointer-events: none; /* Prevents the text from blocking clicks */
+    transition: opacity 0.5s ease-in-out; /* Slower and smoother transition for the text */
+  }
+  
+  .project-box:hover h2,
+  .project-box:hover p {
+    opacity: 0; /* Hides the original text on hover */
+    transition: opacity 0.3s ease;
+  }
+  .modal{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-flow: column ;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6); 
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    z-index: 11;
+  }
+  
+  .modal-open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .blur-no-scroll{
+    overflow: hidden;
+    filter: blur(5px); 
+    pointer-events: none; 
+  }
+  .modal-card {
+    background-color: var(--main-color);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 80%; /* Adjust width as needed */
+    max-width: 40dvw; /* Maximum width for larger screens */
+    max-height: 80dvh;
+    overflow-y: auto;
+    position: relative; /* Required for positioning the close button */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
+    color: var(--third-color); /* Text color */
+  }
+  .modal-card button.close-modal-btn {
+    position: absolute;
+    top: 0.5rem; /* Adjust distance from the top */
+    right: 0.5rem; /* Adjust distance from the right */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--lighter-secondary-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  .modal-card p{
+    font-weight: normal;
+  }
+  .modal-card a{
+    letter-spacing: 0.1em;
+  }
+  .modal-card h3{
+    color: green;
+  }
+  @media (max-width: 768px) {
+    .projects-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+      gap: 2rem 2rem;
+    }
+    
+    .project-box {
+      width: 30vw; /* Adjust width for smaller screens */
+    }
+  
+    .project-box h2,
+    .project-box p {
+      font-size: 1em; /* Scale font size */
+    }
+    .modal-card {
+      max-width: 80dvw; /* Maximum width for larger screens */
+      max-height: 90dvh;
+      overflow-y: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #name{
+      font-size: 5em;
+    }
+    .projects-container {
+      grid-template-columns: 1fr; /* 1 column on mobile */
+      gap: 1rem 1rem;
+    }
+    
+    .project-box {
+      width: 50vw; /* Adjust width for mobile screens */
+    }
+  
+    .project-box h2,
+    .project-box p {
+      font-size: 0.9em; /* Scale font size */
+    }
+    .modal-card {
+  
+  
+      max-width: 80dvw; /* Maximum width for larger screens */
+      max-height: 90dvh;
+      overflow-y: auto;
+     
+    }
+    .sidebar{
+      display: none;
+    }
+  }
+  
