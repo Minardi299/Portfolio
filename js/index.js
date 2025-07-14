@@ -3,10 +3,10 @@ const themeToggle = document.getElementById("checkboxInput");
 const stylesheet = document.getElementById("stylesheet");
 themeToggle.addEventListener("change", function() {
   if (this.checked) {
-    stylesheet.setAttribute("href", "css/alligator.css");
+    stylesheet.setAttribute("href", "css/style.css");
     hideModals();
   } else {
-    stylesheet.setAttribute("href", "css/style.css");
+    stylesheet.setAttribute("href", "css/alligator.css");
     hideModals();
   }
 });

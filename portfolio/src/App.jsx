@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { ThemeManager } from "./theme-manager";
 
 // Image imports (paths assume your 'images' folder is in 'public')
 const aboutImg = "/images/about.jpg";
@@ -11,7 +12,7 @@ const projects = [
   {
     id: "project-1",
     title: "Blazor Google Wallet ID Pass Generator",
-    tech: ".NET C#",
+    tech: ".NET Blazor - C# - Google Wallet API - JWT",
     desc: [
       "Developed a Blazor web application that allows users to generate a Google Wallet pass for company/school IDs by submitting required details such as name, phone number, etc.",
       "Integrated the Google Wallet API to create and manage wallet objects, enabling users to add a customized pass directly to their Google Wallet.",
@@ -20,12 +21,98 @@ const projects = [
     ],
     link: "https://github.com/Minardi299/Blazor",
   },
-  // ...add the rest of your projects here, copy from your HTML
+  {
+    id: "project-2",
+    title: "Book Reading App",
+    tech: "Jetpack Compose - Room Database",
+    desc: [
+        "Developed a book reading app using Kotlin and Jetpack Compose, enabling users to download and read books with an intuitive user interface.",
+        "Implemented coroutines and Flow to manage asynchronous operations, ensuring a smooth and responsive UI experience.",
+        "Integrated Room Database for efficient local storage and retrieval of book data, enhancing offline accessibility.",
+        "Designed dynamic screen layouts to support all device sizes, providing a consistent user experience across smartphones and tablets.",
+        "Conducted unit testing and integration testing to ensure app reliability, stability, and adherence to functional requirements.",
+        "Added localization support for multiple languages, making the app accessible to a global audience.",
+    ],
+  },
+  {
+    id: "project-3",
+    title: "Blazor Flight Tracker Web Application",
+    tech: ".NET Blazor - Boostrap - C# - AviationStack API",
+    desc: [
+        "Still in developement",
+        "Created a flight tracker web application using Blazor and the MudBlazor component library, focusing on ease of use and a clean, Material Design-inspired user interface.",
+        "Integrated the AviationStack API to provide users with real-time flight information by entering details such as flight code, airport code, etc..",
+        "Developed features to display comprehensive flight data, including departure times, arrival times, airports, and flight statuses, ensuring users receive accurate and detailed information.",
+        "Utilized MudBlazor components for a responsive, user-friendly UI",
+    ],
+    link: "https://github.com/Minardi299/Flight-Tracker",
+  },
+  {
+      id: "project-4",
+      title: "On the Record Website",
+      tech: "Mongo - Express - React - Node.js",
+      desc: [
+          "Developed a modern full stack website using the MERN stack, with MongoDBas the database, Express for server-side routing, React for a dynamic and responsive user interface and Node.js for backend logic.",
+          "Implemented a responsive and performance-optimized UI with accessibility in mind, including server/client caching, server-side compression, optimized above fold css and javascript loading, minimized page load times.",
+          "Built a robust and scalable backend, using MongoDB for data storage and performing efficient data filtering within queries to reduce client-side load.",
+          "Test-Driven Development (TDD) using the Mocha/Chai for unit testing along with Supertest and Sinon for integration testing.",
+          "Designed and documented API endpoints for seamless data retrieval using Swagger.",
+          "Fully Implemented a CI/CD pipeline to automate testing and build processes, ensuring reliable deployment of website on both AWS virtual machine and Render.",
+      ],
+      link: "https://five20-project-safin-nathan-minh.onrender.com/",
+  },
+  {
+      id: "project-5",
+      title: "Image processing-OCR script",
+      tech: "Python - Google Tesseract - OpenCV",
+      desc: [
+          "Developed an Image to Text application using Python and OpenCV, implementing image processing techniques such as thresholding, binarization, noise removal, etc to enhance OCR accuracy.",
+          "Integrated Google Tesseract OCR engine to extract text from processed images, ensuring high-quality text recognition for various image types and pdf that stored as image.",
+          "Utilized a locally hosted Large Language Model (LLM) to process and analyze extracted text data, enabling advanced data interpretation and context-aware outputs, in this case, a automated receipt digitalization tool.",
+          "The LLM code is OPENAI API compatible.",
+      ],
+      link: "https://github.com/Minardi299/Receipt-scanner",
+  },
+  {
+      id: "project-6",
+      title: "Avalonia Recipe Sharing Desktop Application",
+      tech: ".NET Avalonia - C# - EFCore - MSTest",
+      desc: [
+          "Developed a modern full-stack .NET application using Avalonia for the user interface and Entity Framework Core (EFCore) as the Object-Relational Mapper (ORM) to manage data access.",
+          "Implemented a responsive UI using the Model-View-ViewModel (MVVM) design pattern with Avalonia, ensuring separation of concerns, maintainability, and scalability of the application.",
+          "Back-end development with EFCore, creating a robust and scalable data layer. Designed and optimized database schemas, implemented CRUD operations",
+          "Test-Driven Development (TDD) using the MSTest framework. Developed unit tests for business logic, data access layers to ensure full test coverage and early detection of bugs",
+      ],
+      link: "https://github.com/Minardi299/MuscleMealApp",
+  }
 ];
 
 export default function App() {
-  // Theme state: "normal" or "alligator"
-  const [theme, setTheme] = useState("normal");
+  const themes = ['/css/normal.css', '/css/alligator.css'];
+
+  const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
+  const nextTheme = () => {
+  setCurrentThemeIndex((prevIndex) =>
+    (prevIndex + 1) % themes.length
+    );
+  };
+  
+  const randomizeTheme = () => {
+    const randomIndex = Math.floor(Math.random() * themes.length);
+    setCurrentThemeIndex(randomIndex);
+  };
+
+  useEffect(() => {
+    let stylesheet = document.getElementById('theme-stylesheet');
+    if (!stylesheet) {
+      stylesheet = document.createElement('link');
+      stylesheet.id = 'theme-stylesheet';
+      stylesheet.rel = 'stylesheet';
+      document.head.appendChild(stylesheet);
+    }
+    // Set the href to the current theme
+    stylesheet.href = themes[currentThemeIndex];
+  }, [currentThemeIndex, themes]);
 
   // Modal state
   const [openModal, setOpenModal] = useState(null);
@@ -37,18 +124,7 @@ export default function App() {
   // Time
   const [currentTime, setCurrentTime] = useState("");
 
-  // Theme switch: swap the stylesheet in <head>
-  useEffect(() => {
-    let stylesheet = document.getElementById("stylesheet");
-    if (stylesheet) {
-      stylesheet.setAttribute(
-        "href",
-        theme === "alligator" ? "/css/alligator.css" : "/css/normal.css"
-      );
-    }
-  }, [theme]);
-
-  // Nav highlight on scroll
+  
   useEffect(() => {
     const handleScroll = () => {
       const offsets = sectionRefs.current.map(
@@ -64,7 +140,6 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // IntersectionObserver for .hidden/.show
   useEffect(() => {
     const observer = new window.IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -142,26 +217,13 @@ export default function App() {
   // Render
   return (
     <div className="no-margin">
+      <link rel="stylesheet" id="theme-stylesheet" href={themes[currentThemeIndex]} />
+
       <main>
-        <aside className="sidebar normal">
-          <nav className="nav">
-            <ul>
-              {["contact", "about", "projects"].map((id, idx) => (
-                <li key={id} className={activeSection === idx ? "active" : ""}>
-                  <a href={`#${id}`}>{id.toUpperCase()}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </aside>
-        {theme === "alligator" && (
-          <>
-            <center className="alligator">
-              <img className="alligator center" src={welcomeGif} alt="Welcome" />
-            </center>
-            <hr className="alligator" />
-          </>
-        )}
+        <ThemeManager href={themes[currentThemeIndex]} />
+
+        
+         
         <ul id="contact" className="hero-content">
           <li className="alligator">
             <a target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/user/ge7ibsztbcdxkj0umooh7av6l?si=56600db326404ff7">
@@ -200,16 +262,18 @@ export default function App() {
               <h5 id="current-time" style={{ whiteSpace: "pre-line" }}>{currentTime}</h5>
             </div>
             <div className="hero-button">
-              <input
+              {/* <input
                 type="checkbox"
                 id="checkboxInput"
                 checked={theme === "alligator"}
                 onChange={e => setTheme(e.target.checked ? "alligator" : "normal")}
-              />
+              /> */}
+              <button onClick={nextTheme}>Next Theme</button>
+      <button onClick={randomizeTheme}>Randomize Theme</button>
               <label htmlFor="checkboxInput" className="toggleSwitch"></label>
             </div>
           </div>
-          {theme === "alligator" && (
+          
             <table className="alligator" align="center">
               <tbody>
                 <tr>
@@ -247,7 +311,7 @@ export default function App() {
                 </tr>
               </tbody>
             </table>
-          )}
+          
         </section>
         <section id="about" ref={el => (sectionRefs.current[1] = el)}>
           <img className="hidden normal" src={aboutImg} alt="" />
